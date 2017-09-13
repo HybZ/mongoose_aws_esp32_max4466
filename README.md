@@ -1,2 +1,11 @@
-# mongoose_aws_esp32_max4466
-A simple skecth for Mongoose OS based on c_mqtt example conecting to Amazone Web Services and reading sound from a MAX4466 module
+	#build firmware
+mos build --platform esp32
+
+	#falsh the device
+mos flash
+	
+	#wifi password
+mos wifi SSID PASSWD
+
+	#certificates and region for mqtt /!\ Need to create a group with the corect policy and add the user coresponding to 'API KEY' to that group, needs iot:CreateCertificatKey
+mos aws-iot-setup --aws-region eu-west-1 --aws-iot-policy mos-default
